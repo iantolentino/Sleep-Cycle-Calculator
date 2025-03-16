@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleep Cycle Calculator</title>
+  <link rel="icon" href="images/moon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+  <header>
+    <div class="container header-container">
+      <h1 class="typing">Sleep Cycle Calculator</h1>
+      <button id="theme-toggle" class="toggle-button">Dark</button>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <p class="typing-desc">Enter your sleep time and wake-up time to see how many complete 90-minute sleep cycles you can have.</p>
+      
+      <div class="input-group">
+        <label for="sleepTime">Sleep Time (HH:MM, 24-hour format):</label>
+        <input type="time" id="sleepTime" class="time-input-field">
+      </div>
+      <div class="input-group">
+        <label for="wakeTime">Wake Up Time (HH:MM, 24-hour format):</label>
+        <input type="time" id="wakeTime" class="time-input-field">
+      </div>
+      
+      <button id="calculateButton" class="calc-button">Calculate</button>
+      
+      <div id="result" class="result typing-desc"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
