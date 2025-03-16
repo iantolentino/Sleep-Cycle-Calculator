@@ -1,6 +1,6 @@
 # Sleep Cycle Calculator 💤
 
-A sleek, minimalistic web app that calculates how many complete 90-minute sleep cycles you can get based on your sleep and wake-up times.
+A sleek, minimalistic web app that calculates how many sleep cycles you can get based on your sleep and wake-up times.
 
 ---
 
