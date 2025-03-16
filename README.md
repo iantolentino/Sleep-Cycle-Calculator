@@ -17,7 +17,7 @@ A sleek, minimalistic web app that calculates how many complete 90-minute sleep 
 
 ## 🚀 Live Demo
 
-[Click Here to Try It!](#)  
+[https://itcodelab.github.io/Sleep-Cycle-Calculator/](#)  
 *(Replace with your GitHub Pages link when deployed)*
 
 ---
