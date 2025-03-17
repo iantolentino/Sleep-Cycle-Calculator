@@ -17,7 +17,7 @@ A sleek, minimalistic web app that calculates how many sleep cycles you can get 
 
 ## 🚀 Live Demo
 
-[https://itcodelab.github.io/Sleep-Cycle-Calculator/](#)  
+[https://iantolentino.github.io/Sleep-Cycle-Calculator/](#)  
 *(Replace with your GitHub Pages link when deployed)*
 
 ---
