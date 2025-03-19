@@ -13,14 +13,6 @@ A sleek, minimalistic web app that calculates how many sleep cycles you can get 
 - Smooth **Typing Animation**
 - **Responsive Design** (mobile-friendly)
 
----
-
-## 🚀 Live Demo
-
-[https://iantolentino.github.io/Sleep-Cycle-Calculator/](#)  
-
----
-
 ## 📂 Project Structure
 
 ```
@@ -80,8 +72,3 @@ Feel free to change it to another sleep-related icon like a pillow, stars, or al
 - Support AM/PM input format option
 - Store user preferences (theme) using local storage
 - Add sound notification for ideal wake-up time
-
----
-
-**Need help deploying it live or pushing it to GitHub again?**  
-I can walk you through the exact Git commands step by step if you want!
