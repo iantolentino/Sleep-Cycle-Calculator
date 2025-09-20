@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sleep Cycle Calculator</title>
-  <link rel="icon" href="images/moon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles.css">
 
   <!-- Font Awesome for Download Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- html2canvas (for "save result as image") -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="dark">
   <header>
     <div class="container header-container">
-      <h1 class="typing">Sleep Cycle Calculator</h1>
-      <button id="theme-toggle" class="toggle-button">Dark</button>
+      <h1>Sleep Cycle Calculator</h1>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn small">Dark</button>
+      </div>
     </div>
   </header>
+
   <main>
-    <div class="container">
-      <p class="typing-desc">Enter your sleep time and wake-up time to see how many complete 90-minute sleep cycles you can have.</p>
-      
-      <!-- Input Box Centered -->
+    <div class="container center-box">
+      <p class="desc">Find the best times to wake up based on 90-minute sleep cycles.</p>
+
       <div class="input-box">
-        <label for="sleepInput">Select Sleep Time:</label>
-        <input type="time" id="sleepInput" class="time-input-field">
-        
+        <label for="sleepInput" class="visually-hidden">Sleep time</label>
+        <input type="time" id="sleepInput" class="time-input-field" aria-label="Sleep start time">
         <div class="button-group">
-          <button id="rightNowBtn" class="calc-button">Right Now</button>
-          <button id="selectTimeBtn" class="calc-button">Select Time</button>
+          <button id="rightNowBtn" class="btn primary">Right Now</button>
+          <button id="selectTimeBtn" class="btn primary">Select Time</button>
         </div>
       </div>
 
-      <div id="result" class="result"></div>
+      <!-- Result container: icon is inside here and positioned top-right -->
+      <div id="result" class="result" aria-live="polite" style="display:none;">
+        <button id="downloadBtn" class="icon-button" title="Download result as image" aria-label="Download result">
+          <i class="fa-solid fa-download"></i>
+        </button>
 
-      <!-- Download Icon Button (upper right corner inside container) -->
-      <button id="downloadBtn" class="icon-button" title="Download Result">
-        <i class="fa-solid fa-download"></i>
-      </button>
+        <!-- result content goes here -->
+        <div id="resultContent" class="result-content"></div>
+      </div>
+
+      <div class="notes">
+      </div>
     </div>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
