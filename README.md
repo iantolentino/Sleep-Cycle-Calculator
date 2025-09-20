@@ -27,12 +27,6 @@ A sleek, minimalistic web app that calculates how many sleep cycles you can get 
 
 ---
 
-## 📸 Screenshots
-
-*(Optional: Add screenshots to show app interface here)*
-
----
-
 ## 🔧 How to Use
 
 1. Open the app.
@@ -63,12 +57,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 A simple **moon icon** works perfectly as the favicon (already added as `images/moon.png`).  
 Feel free to change it to another sleep-related icon like a pillow, stars, or alarm clock if you wish!
-
----
-
-## 💡 Future Improvements (Optional Ideas)
-
-- Add sleep quality recommendations
-- Support AM/PM input format option
-- Store user preferences (theme) using local storage
-- Add sound notification for ideal wake-up time
