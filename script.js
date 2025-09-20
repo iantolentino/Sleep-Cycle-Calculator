@@ -1,70 +1,73 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const nowBtn = document.getElementById("nowBtn");
-  const selectBtn = document.getElementById("selectBtn");
-  const themeToggle = document.getElementById("theme-toggle");
-  const downloadBtn = document.getElementById("downloadBtn");
+document.addEventListener("DOMContentLoaded", function() {
+  const rightNowBtn = document.getElementById('rightNowBtn');
+  const selectTimeBtn = document.getElementById('selectTimeBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const themeToggle = document.getElementById('theme-toggle');
 
-  nowBtn.addEventListener("click", () => calculateCycles(new Date()));
-  selectBtn.addEventListener("click", getCustomTime);
-  themeToggle.addEventListener("click", toggleTheme);
-  downloadBtn.addEventListener("click", downloadResult);
+  rightNowBtn.addEventListener('click', () => calculateCycles(new Date()));
+  selectTimeBtn.addEventListener('click', () => {
+    const sleepTimeStr = document.getElementById('sleepInput').value;
+    if (!sleepTimeStr) {
+      alert("Please select a sleep time.");
+      return;
+    }
+    const [hour, minute] = sleepTimeStr.split(":").map(Number);
+    let selectedTime = new Date();
+    selectedTime.setHours(hour, minute, 0, 0);
+    calculateCycles(selectedTime);
+  });
+
+  themeToggle.addEventListener('click', toggleTheme);
+
+  downloadBtn.addEventListener('click', () => {
+    const result = document.getElementById('result');
+    if (!result.innerHTML.trim()) {
+      alert("No result to download!");
+      return;
+    }
+
+    html2canvas(result).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "sleep-cycle-result.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  });
 });
 
-function getCustomTime() {
-  const hour = parseInt(document.getElementById("hour").value);
-  const minute = parseInt(document.getElementById("minute").value) || 0;
-  const ampm = document.getElementById("ampm").value;
-
-  if (!hour || hour < 1 || hour > 12) {
-    alert("Please enter a valid hour (1–12).");
-    return;
-  }
-  if (minute < 0 || minute > 59) {
-    alert("Please enter a valid minute (0–59).");
-    return;
-  }
-
-  let hour24 = hour % 12;
-  if (ampm === "PM") hour24 += 12;
-
-  const now = new Date();
-  const sleepTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour24, minute);
-  calculateCycles(sleepTime);
-}
-
 function calculateCycles(sleepTime) {
-  const resultDiv = document.getElementById("result");
+  const resultDiv = document.getElementById('result');
   const cycleLength = 90; // minutes
-  const cycles = 6; // calculate up to 6 cycles (~9 hrs)
+  const cycles = 6; // recommended full cycles
 
-  let results = `<h3>Recommended Wake-Up Times</h3>`;
-  let times = [];
-
+  let cycleTimes = [];
   for (let i = 1; i <= cycles; i++) {
-    const wakeTime = new Date(sleepTime.getTime() + i * cycleLength * 60000);
-    const formatted = wakeTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    times.push(`<span class="result-line">${formatted} — after ${i} cycle${i > 1 ? "s" : ""}</span>`);
+    const cycleEnd = new Date(sleepTime.getTime() + i * cycleLength * 60000);
+    const formattedTime = cycleEnd.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    cycleTimes.push(`${formattedTime} - ${i} cycle${i > 1 ? 's' : ''}`);
   }
 
-  results += times.join("");
-  resultDiv.innerHTML = results;
-  resultDiv.style.display = "block";
+  let resultText = `<strong>Recommended Sleep Cycles:</strong><br>`;
+  cycleTimes.forEach(time => {
+    resultText += `<span class="result-line">${time}</span>`;
+  });
+
+  resultText += `<br><em>Note: Adults need 7–9 hours of sleep (5–6 cycles). If urgent, waking up at the end of a cycle will help you feel less groggy.</em>`;
+
+  resultDiv.style.display = 'block';
+  resultDiv.innerHTML = resultText;
 }
 
 function toggleTheme() {
   const body = document.body;
-  const btn = document.getElementById("theme-toggle");
-  body.classList.toggle("dark");
-  body.classList.toggle("light");
-  btn.innerText = body.classList.contains("dark") ? "Dark" : "Light";
-}
-
-function downloadResult() {
-  const resultDiv = document.querySelector(".container");
-  html2canvas(resultDiv).then(canvas => {
-    const link = document.createElement("a");
-    link.download = "sleep_cycles.png";
-    link.href = canvas.toDataURL();
-    link.click();
-  });
+  const themeToggle = document.getElementById('theme-toggle');
+  if (body.classList.contains('dark')) {
+    body.classList.remove('dark');
+    body.classList.add('light');
+    themeToggle.innerText = "Light";
+  } else {
+    body.classList.remove('light');
+    body.classList.add('dark');
+    themeToggle.innerText = "Dark";
+  }
 }
