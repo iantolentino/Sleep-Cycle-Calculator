@@ -1,76 +1,70 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const calculateButton = document.getElementById('calculateButton');
-    calculateButton.addEventListener('click', calculateCycles);
-    
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', toggleTheme);
+document.addEventListener("DOMContentLoaded", () => {
+  const nowBtn = document.getElementById("nowBtn");
+  const selectBtn = document.getElementById("selectBtn");
+  const themeToggle = document.getElementById("theme-toggle");
+  const downloadBtn = document.getElementById("downloadBtn");
+
+  nowBtn.addEventListener("click", () => calculateCycles(new Date()));
+  selectBtn.addEventListener("click", getCustomTime);
+  themeToggle.addEventListener("click", toggleTheme);
+  downloadBtn.addEventListener("click", downloadResult);
+});
+
+function getCustomTime() {
+  const hour = parseInt(document.getElementById("hour").value);
+  const minute = parseInt(document.getElementById("minute").value) || 0;
+  const ampm = document.getElementById("ampm").value;
+
+  if (!hour || hour < 1 || hour > 12) {
+    alert("Please enter a valid hour (1–12).");
+    return;
+  }
+  if (minute < 0 || minute > 59) {
+    alert("Please enter a valid minute (0–59).");
+    return;
+  }
+
+  let hour24 = hour % 12;
+  if (ampm === "PM") hour24 += 12;
+
+  const now = new Date();
+  const sleepTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour24, minute);
+  calculateCycles(sleepTime);
+}
+
+function calculateCycles(sleepTime) {
+  const resultDiv = document.getElementById("result");
+  const cycleLength = 90; // minutes
+  const cycles = 6; // calculate up to 6 cycles (~9 hrs)
+
+  let results = `<h3>Recommended Wake-Up Times</h3>`;
+  let times = [];
+
+  for (let i = 1; i <= cycles; i++) {
+    const wakeTime = new Date(sleepTime.getTime() + i * cycleLength * 60000);
+    const formatted = wakeTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    times.push(`<span class="result-line">${formatted} — after ${i} cycle${i > 1 ? "s" : ""}</span>`);
+  }
+
+  results += times.join("");
+  resultDiv.innerHTML = results;
+  resultDiv.style.display = "block";
+}
+
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.getElementById("theme-toggle");
+  body.classList.toggle("dark");
+  body.classList.toggle("light");
+  btn.innerText = body.classList.contains("dark") ? "Dark" : "Light";
+}
+
+function downloadResult() {
+  const resultDiv = document.querySelector(".container");
+  html2canvas(resultDiv).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "sleep_cycles.png";
+    link.href = canvas.toDataURL();
+    link.click();
   });
-  
-  function calculateCycles() {
-    const sleepTimeStr = document.getElementById('sleepTime').value;
-    const wakeTimeStr = document.getElementById('wakeTime').value;
-    const resultDiv = document.getElementById('result');
-    
-    if (!sleepTimeStr || !wakeTimeStr) {
-      alert('Please enter both sleep time and wake-up time.');
-      return;
-    }
-    
-    const now = new Date();
-    let sleepTime = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    let wakeTime = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    
-    const [sleepHour, sleepMinute] = sleepTimeStr.split(':').map(Number);
-    const [wakeHour, wakeMinute] = wakeTimeStr.split(':').map(Number);
-    
-    sleepTime.setHours(sleepHour, sleepMinute, 0, 0);
-    wakeTime.setHours(wakeHour, wakeMinute, 0, 0);
-    
-    // If wake time is before or equal to sleep time, assume it's the next day
-    if (wakeTime <= sleepTime) {
-      wakeTime.setDate(wakeTime.getDate() + 1);
-    }
-    
-    // Calculate total sleep minutes and complete 90-minute cycles
-    const diffMinutes = (wakeTime - sleepTime) / (1000 * 60);
-    const cycleLength = 90;
-    const cycles = Math.floor(diffMinutes / cycleLength);
-    
-    let cycleTimes = [];
-    for (let i = 1; i <= cycles; i++) {
-      const cycleEnd = new Date(sleepTime.getTime() + i * cycleLength * 60000);
-      const formattedTime = cycleEnd.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      cycleTimes.push(`${formattedTime} - ${i} cycle${i > 1 ? 's' : ''}`);
-    }
-    
-    let resultText = `Total sleep time:<br> ${diffMinutes} minutes. You can have ${cycles} complete 90-minute cycle${cycles !== 1 ? 's' : ''}.<br><br>`;
-    
-    if (cycleTimes.length > 0) {
-      resultText += `Cycle End Times:<br>`;
-      cycleTimes.forEach(time => {
-        resultText += `<span class="result-line">${time}</span>`;
-      });
-    }
-    
-    // Show the result container and apply typing animation
-    resultDiv.style.display = 'block';
-    resultDiv.classList.remove('typing-desc');
-    void resultDiv.offsetWidth; // Trigger reflow to restart animation
-    resultDiv.innerHTML = resultText;
-    resultDiv.classList.add('typing-desc');
-  }
-  
-  function toggleTheme() {
-    const body = document.body;
-    const themeToggle = document.getElementById('theme-toggle');
-    if (body.classList.contains('dark')) {
-      body.classList.remove('dark');
-      body.classList.add('light');
-      themeToggle.innerText = "Light";
-    } else {
-      body.classList.remove('light');
-      body.classList.add('dark');
-      themeToggle.innerText = "Dark";
-    }
-  }
-  
+}

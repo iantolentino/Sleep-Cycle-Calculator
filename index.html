@@ -4,34 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sleep Cycle Calculator</title>
-  <link rel="icon" href="images/moon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="dark">
   <header>
     <div class="container header-container">
-      <h1 class="typing">Sleep Cycle Calculator</h1>
-      <button id="theme-toggle" class="toggle-button">Dark</button>
+      <h1>Sleep Cycle Calculator</h1>
+      <div class="header-actions">
+        <button id="downloadBtn" class="btn">Download</button>
+        <button id="theme-toggle" class="btn">Dark</button>
+      </div>
     </div>
   </header>
+
   <main>
-    <div class="container">
-      <p class="typing-desc">Enter your sleep time and wake-up time to see how many complete 90-minute sleep cycles you can have.</p>
-      
+    <div class="container center-box">
+      <p class="desc">Find the best times to wake up based on 90-minute sleep cycles.</p>
+
       <div class="input-group">
-        <label for="sleepTime">Sleep Time (HH:MM, 24-hour format):</label>
-        <input type="time" id="sleepTime" class="time-input-field">
+        <label for="customTime">Choose sleep start time:</label>
+        <div class="time-select">
+          <input type="number" id="hour" min="1" max="12" placeholder="HH">
+          <span>:</span>
+          <input type="number" id="minute" min="0" max="59" placeholder="MM">
+          <select id="ampm">
+            <option>AM</option>
+            <option>PM</option>
+          </select>
+        </div>
       </div>
-      <div class="input-group">
-        <label for="wakeTime">Wake Up Time (HH:MM, 24-hour format):</label>
-        <input type="time" id="wakeTime" class="time-input-field">
+
+      <div class="button-group">
+        <button id="nowBtn" class="btn primary">Right Now</button>
+        <button id="selectBtn" class="btn primary">Select Time</button>
       </div>
-      
-      <button id="calculateButton" class="calc-button">Calculate</button>
-      
-      <div id="result" class="result typing-desc"></div>
+
+      <div id="result" class="result"></div>
+
+      <div class="notes">
+        <p><strong>Note:</strong> Adults need <strong>7–9 hours</strong> of sleep daily or <strong>5-6 Cycles</strong> for optimal health.</p>
+        <p class="urgent">If you urgently need to wake up, aim for completing at least one full 90-minute cycle.</p>
+      </div>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
