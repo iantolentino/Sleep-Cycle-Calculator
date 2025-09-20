@@ -47,12 +47,6 @@ A sleek, minimalistic web app that calculates how many sleep cycles you can get 
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 🌙 Favicon
 
 A simple **moon icon** works perfectly as the favicon (already added as `images/moon.png`).  
