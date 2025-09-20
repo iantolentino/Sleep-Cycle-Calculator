@@ -18,7 +18,10 @@
     <div class="container header-container">
       <h1>Sleep Cycle Calculator</h1>
       <div class="header-actions">
-        <button id="theme-toggle" class="btn small">Dark</button>
+        <!-- Theme toggle icon -->
+        <button id="theme-toggle" class="icon-button" title="Toggle theme">
+          <span id="theme-icon">✹</span>
+        </button>
       </div>
     </div>
   </header>
@@ -32,21 +35,16 @@
         <input type="time" id="sleepInput" class="time-input-field" aria-label="Sleep start time">
         <div class="button-group">
           <button id="rightNowBtn" class="btn primary">Right Now</button>
-          <button id="selectTimeBtn" class="btn primary">Select Time</button>
+          <button id="selectTimeBtn" class="btn primary">Selected Time</button>
         </div>
       </div>
 
-      <!-- Result container: icon is inside here and positioned top-right -->
+      <!-- Result container -->
       <div id="result" class="result" aria-live="polite" style="display:none;">
         <button id="downloadBtn" class="icon-button" title="Download result as image" aria-label="Download result">
           <i class="fa-solid fa-download"></i>
         </button>
-
-        <!-- result content goes here -->
         <div id="resultContent" class="result-content"></div>
-      </div>
-
-      <div class="notes">
       </div>
     </div>
   </main>

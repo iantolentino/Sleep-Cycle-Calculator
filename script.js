@@ -31,12 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // temporarily hide the download button so it isn't part of the image
     const btn = document.getElementById('downloadBtn');
     const prevDisplay = btn.style.display;
     btn.style.display = 'none';
 
-    // Ensure the element is visible for capture
     resultEl.style.display = 'block';
 
     try {
@@ -53,21 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error('Error capturing result:', e);
       alert('Unable to create image. See console for details.');
     } finally {
-      // restore button visibility
       btn.style.display = prevDisplay || '';
     }
   });
 });
 
-/**
- * Calculate recommended wake times (90-minute cycles) from sleepTime (Date).
- * Renders results inside #resultContent and shows #result.
- */
 function calculateCycles(sleepTime) {
   const resultDiv = document.getElementById('result');
   const resultContent = document.getElementById('resultContent');
-  const cycleLength = 90; // minutes
-  const maxCycles = 6; // show up to 6 cycles (≈9 hours)
+  const cycleLength = 90;
+  const maxCycles = 6;
 
   const lines = [];
   for (let i = 1; i <= maxCycles; i++) {
@@ -80,23 +73,27 @@ function calculateCycles(sleepTime) {
     <h3>Recommended Wake-Up Times</h3>
     ${lines.join("\n")}
     <div class="result-note">Note: Adults generally need 7–9 hours (≈5–6 cycles). If urgent, pick the shortest complete cycle.</div>
-     <div class="result-note">If you urgently need to wake up, aim to wake at the end of a 90-minute cycle.</div>
+    <div class="result-note">If you urgently need to wake up, aim to wake at the end of a 90-minute cycle.</div>
   `;
   resultContent.innerHTML = html;
   resultDiv.style.display = 'block';
 }
 
-/** simple theme toggle between .dark and .light */
 function toggleTheme() {
   const body = document.body;
-  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+
   if (body.classList.contains('dark')) {
     body.classList.remove('dark');
     body.classList.add('light');
-    btn.innerText = 'Light';
+    icon.textContent = '⏾';
   } else {
     body.classList.remove('light');
     body.classList.add('dark');
-    btn.innerText = 'Dark';
+    icon.textContent = '✹';
   }
+
+  // Rotation effect
+  icon.classList.add('rotate');
+  setTimeout(() => icon.classList.remove('rotate'), 500);
 }
