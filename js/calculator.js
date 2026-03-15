@@ -66,21 +66,21 @@ export class SleepCalculator {
       <div class="result-line ${wt.cycleNumber >= 5 ? 'recommended' : ''}">
         <span class="cycle-time">${wt.formattedTime}</span>
         <span class="cycle-desc">— ${wt.description}</span>
-        ${wt.cycleNumber >= 5 ? '<span class="badge">✨ Ideal</span>' : ''}
+        ${wt.cycleNumber >= 5 ? '<span class="badge"> Ideal</span>' : ''}
       </div>
     `).join('');
 
     const sleepDuration = wakeTimes[wakeTimes.length - 1].totalSleepHours;
 
     return `
-      <h3>🌅 Recommended Wake-Up Times</h3>
+      <h3> Recommended Wake-Up Times</h3>
       ${wakeTimesHtml}
       <div class="result-note">
-        <p><strong>💡 Quick Tips:</strong></p>
+        <p><strong> Quick Tips:</strong></p>
         <ul>
-          <li>✨ 5-6 cycles (7.5-9 hours) is ideal for adults</li>
-          <li>⚠️ Waking mid-cycle causes sleep inertia (grogginess)</li>
-          <li>⏰ Add 15 minutes to account for falling asleep</li>
+          <li> 5-6 cycles (7.5-9 hours) is ideal for adults</li>
+          <li> Waking mid-cycle causes sleep inertia (grogginess)</li>
+          <li> Add 15 minutes to account for falling asleep</li>
         </ul>
       </div>
       <div class="result-note">
