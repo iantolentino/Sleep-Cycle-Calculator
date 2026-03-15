@@ -1,0 +1,53 @@
+/* ========================================
+   Theme Variables
+   Dark & Light mode color schemes
+   ======================================== */
+
+body.dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #bdbdbd;
+  --text-muted: #9e9e9e;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --icon-bg: rgba(255, 255, 255, 0.06);
+  --icon-hover: rgba(255, 255, 255, 0.12);
+  --accent-color: #4a9eff;
+  --success-color: #4caf50;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-card: #f6f8fa;
+  --text-primary: #111111;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --icon-bg: rgba(0, 0, 0, 0.06);
+  --icon-hover: rgba(0, 0, 0, 0.12);
+  --accent-color: #0066cc;
+  --success-color: #2e7d32;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Theme transition for smooth switching */
+body,
+button,
+.card,
+.result,
+.info-panel,
+.modal-content {
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sleep Cycle Calculator - Wake up refreshed by timing your sleep cycles" />
+  <title>Sleep Cycle Calculator | Wake Up Refreshed</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- html2canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="dark">
+  <header>
+    <div class="container header-container">
+      <h1>😴 Sleep Cycle Calculator</h1>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-button" title="Toggle theme" aria-label="Toggle theme">
+          <span id="theme-icon">✹</span>
+        </button>
+        <button id="info-toggle" class="icon-button" title="About sleep cycles" aria-label="About sleep cycles">
+          <i class="fa-solid fa-info"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Quick Info Panel -->
+      <div id="info-panel" class="info-panel" style="display: none;">
+        <div class="info-content">
+          <h3>Why Sleep Cycles Matter</h3>
+          <p>Sleep occurs in 90-minute cycles. Waking up at the end of a cycle leaves you feeling refreshed, while waking in the middle causes grogginess.</p>
+          <a href="#" id="read-more-link">Read the science behind it →</a>
+        </div>
+      </div>
+
+      <!-- Main Calculator -->
+      <div class="calculator-card">
+        <p class="desc">Find the best times to wake up based on 90-minute sleep cycles</p>
+
+        <div class="input-group">
+          <label for="sleepInput" class="input-label">When will you fall asleep?</label>
+          <input type="time" id="sleepInput" class="time-input-field" value="23:00" aria-label="Sleep start time">
+          
+          <div class="button-group">
+            <button id="rightNowBtn" class="btn primary">
+              <i class="fa-regular fa-clock"></i> Right Now
+            </button>
+            <button id="selectTimeBtn" class="btn secondary">
+              <i class="fa-regular fa-calendar-check"></i> Calculate
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Container -->
+        <div id="result" class="result" aria-live="polite" style="display:none;">
+          <button id="downloadBtn" class="icon-button download-btn" title="Download result as image" aria-label="Download result">
+            <i class="fa-solid fa-download"></i>
+          </button>
+          <div id="resultContent" class="result-content"></div>
+        </div>
+      </div>
+
+      <!-- Sleep Facts Section -->
+      <div class="facts-section">
+        <h2 class="section-title">✨ Sleep Science</h2>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <i class="fa-solid fa-brain fact-icon"></i>
+            <h3>90-Minute Cycles</h3>
+            <p>Each cycle includes light sleep, deep sleep, and REM sleep. Completing full cycles is key to feeling rested.</p>
+          </div>
+          <div class="fact-card">
+            <i class="fa-solid fa-clock fact-icon"></i>
+            <h3>5-6 Cycles Ideal</h3>
+            <p>Adults need 7-9 hours of sleep, which equals 5-6 complete cycles. Less than 4 cycles can lead to sleep deprivation.</p>
+          </div>
+          <div class="fact-card">
+            <i class="fa-solid fa-moon fact-icon"></i>
+            <h3>Wake-Up Window</h3>
+            <p>The best wake-up times are at the end of cycles. Even 10 minutes earlier can make you feel groggy all day.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Preview -->
+      <div class="article-preview">
+        <h2 class="section-title">📚 Understanding Your Sleep</h2>
+        <div class="article-content">
+          <p>Sleep isn't just "shutting down" – it's an active process where your brain consolidates memories, your body repairs itself, and your mind processes emotions. The 90-minute cycle theory, first proposed by sleep researcher Nathaniel Kleitman, suggests that our sleep architecture follows predictable patterns throughout the night.</p>
+          <p>When you wake up during deep sleep (stages 3 and 4), you experience sleep inertia – that horrible groggy feeling that can last for hours. By timing your wake-up to the end of a cycle, you're more likely to be in light sleep or REM, making the transition to wakefulness smoother.</p>
+          <button id="expandArticle" class="btn text-btn">Read full article →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Article Modal -->
+  <div id="articleModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="articleContent"></div>
+    </div>
+  </div>
+
+  <!-- FIX: Add type="module" to script tags and include all JS in one file for now -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "sleep-cycle-calculator",
+  "version": "2.0.0",
+  "description": "A minimalist sleep cycle calculator to help you wake up refreshed",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000",
+    "format": "prettier --write \"**/*.{js,css,html,md}\"",
+    "lint": "eslint js/**/*.js"
+  },
+  "keywords": [
+    "sleep",
+    "calculator",
+    "health",
+    "wellness",
+    "circadian-rhythm"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.1.1",
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sleep-cycle-calculator"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/sleep-cycle-calculator/issues"
+  },
+  "homepage": "https://yourusername.github.io/sleep-cycle-calculator"
+}

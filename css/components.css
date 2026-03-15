@@ -1,0 +1,351 @@
+/* ========================================
+   Component Styles
+   Buttons, cards, inputs, and UI elements
+   ======================================== */
+
+/* ===== Calculator Card ===== */
+.calculator-card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--card-shadow);
+}
+
+.desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Input Group ===== */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.time-input-field {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.time-input-field:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn.primary {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn.primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn.secondary {
+  background-color: var(--icon-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn.secondary:hover {
+  background-color: var(--icon-hover);
+  transform: translateY(-2px);
+}
+
+.btn.text-btn {
+  background: none;
+  padding: 0.5rem 0;
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn.text-btn:hover {
+  opacity: 0.8;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Icon Button ===== */
+.icon-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-bg);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background: var(--icon-hover);
+  transform: scale(1.08);
+}
+
+.icon-button:active {
+  transform: scale(0.98);
+}
+
+.download-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+/* ===== Result Container ===== */
+.result {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 16px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  animation: fadeIn 0.5s ease;
+}
+
+.result-content h3 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.result-line {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.result-line:hover {
+  background-color: var(--icon-bg);
+}
+
+.result-note {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 1rem;
+}
+
+/* ===== Info Panel ===== */
+.info-panel {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  border-left: 4px solid var(--accent-color);
+  animation: slideDown 0.3s ease;
+}
+
+.info-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.info-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-content a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Facts Section ===== */
+.facts-section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.fact-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+
+.fact-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.fact-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.fact-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===== Article Preview ===== */
+.article-preview {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.article-content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+  color: var(--text-primary);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate {
+  animation: spin 0.5s ease;
+}
+
+/* Add to components.css */
+.result-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.recommended {
+  background-color: rgba(74, 158, 255, 0.1);
+  border-left: 3px solid var(--accent-color);
+}
+
+.cycle-time {
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.cycle-desc {
+  color: var(--text-secondary);
+}

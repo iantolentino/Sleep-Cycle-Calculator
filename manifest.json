@@ -1,0 +1,84 @@
+{
+  "name": "Sleep Cycle Calculator",
+  "short_name": "SleepCalc",
+  "description": "Wake up refreshed by timing your sleep with 90-minute cycles",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1e1e1e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-dark.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sleep Cycle Calculator in Dark Mode"
+    },
+    {
+      "src": "assets/images/screenshot-light.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sleep Cycle Calculator in Light Mode"
+    },
+    {
+      "src": "assets/images/screenshot-mobile.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view with results"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calculate Now",
+      "short_name": "Calculate",
+      "description": "Calculate sleep cycles for current time",
+      "url": "/?action=now",
+      "icons": [{ "src": "assets/images/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Sleep Science",
+      "short_name": "Science",
+      "description": "Read about sleep cycle science",
+      "url": "/?action=science",
+      "icons": [{ "src": "assets/images/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "categories": ["health", "lifestyle", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

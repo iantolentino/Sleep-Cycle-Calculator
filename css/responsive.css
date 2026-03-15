@@ -1,0 +1,103 @@
+/* ========================================
+   Responsive Design
+   Mobile-first breakpoints
+   ======================================== */
+
+/* Small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .calculator-card {
+    padding: 1.25rem;
+  }
+
+  .time-input-field {
+    max-width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin: 10% 1rem;
+    padding: 1.5rem;
+  }
+
+  .result {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .result-line {
+    font-size: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 1.25rem;
+  }
+
+  .facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .button-group {
+    justify-content: flex-start;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .modal-content {
+    margin: 2% auto;
+    max-height: 90vh;
+  }
+
+  .facts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .icon-button,
+  .button-group,
+  #info-toggle,
+  #theme-toggle {
+    display: none;
+  }
+
+  .result {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

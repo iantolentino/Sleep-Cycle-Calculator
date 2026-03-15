@@ -1,0 +1,72 @@
+/* ========================================
+   Sleep Cycle Calculator - Main Stylesheet
+   Author: Refactored Version
+   Description: Minimalist design with dark/light themes
+   ======================================== */
+
+/* Import modular CSS files */
+@import url('themes.css');
+@import url('components.css');
+@import url('responsive.css');
+
+/* ===== Base Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Base Styles ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* ===== Typography ===== */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Header ===== */
+header {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
